@@ -19,6 +19,7 @@
 #define MAC_CAP LM(LAYER_MAC_CMD, MOD_LGUI)
 #define FN_GRV  LT(LAYER_FN, KC_GRV)
 #define WIN_CAP MO(LAYER_WIN_CAP)
+#define WIN_CTL MO(LAYER_WIN_CTL)
 
 // Macros for modifier keys
 #define AK(N) LALT(KC_##N)
@@ -50,12 +51,12 @@ const uint16_t PROGMEM keymaps[LAYER_COUNT][MATRIX_ROWS][MATRIX_COLS] = {
         WIN_CTL, KC_LGUI, KC_LALT,                            _______,                            TO_CLN,  _______, _______, _______, _______
     ),
     // RGB Red
-    [LAYER_WIN_CMD] = LAYOUT_65_ansi_blocker(
+    [LAYER_WIN_CAP] = LAYOUT_65_ansi_blocker(
         AK(ESC), CK(1),   CK(2),   CK(3),   CK(4),   CK(5),   CK(6),   CK(7),   CK(8),   CK(9),   CK(0),   CK(MINS),CK(EQL), CK(BSPC),CK(HOME),
-        AK(TAB), AK(F4),  CK(F4),  CK(E),   CK(R),   CK(T),   CK(Y)    CK(U),   CK(I),   CK(O),   CK(P),   CK(LBRC),CK(RBRC),CK(BSLS),CK(PGUP),
-        _______, CK(A),   CK(S),   CK(D),   CK(F),   CK(G),   CK(H),   CK(J),   CK(K),   CK(L),   CK(SEMI),CK(QUOT),         CK(ENT), CK(PGDN),
-        CK(LSFT),CK(Z),   CK(X),   CK(C),   CK(V),   CK(B),   CK(N),   CK(M),   KC(COMM),CK(DOT), CK(SLSH),KC_LGUI,          CK(UP),  CK(END),
-        KC_LCTL, CK(LGUI),CK(LART),                           CK(SPC),                            _______, CK(GRV), CK(LEFT),CK(DOWN),CK(RGHT)
+        AK(TAB), AK(F4),  CK(F4),  CK(E),   CK(R),   CK(T),   CK(Y),   CK(U),   CK(I),   CK(O),   CK(P),   CK(LBRC),CK(RBRC),CK(BSLS),CK(PGUP),
+        _______, CK(A),   CK(S),   CK(D),   CK(F),   CK(G),   CK(H),   CK(J),   CK(K),   CK(L),   CK(SCLN),CK(QUOT),         CK(ENT), CK(PGDN),
+        CK(LSFT),CK(Z),   CK(X),   CK(C),   CK(V),   CK(B),   CK(N),   CK(M),   CK(COMM),CK(DOT), CK(SLSH),KC_LGUI,          CK(UP),  CK(END),
+        KC_LCTL, CK(LGUI),CK(LALT),                           CK(SPC),                            _______, CK(GRV), CK(LEFT),CK(DOWN),CK(RGHT)
     ),
     // RGB Green
     [LAYER_MAC_CMD] = LAYOUT_65_ansi_blocker(
@@ -68,10 +69,10 @@ const uint16_t PROGMEM keymaps[LAYER_COUNT][MATRIX_ROWS][MATRIX_COLS] = {
     // RGB Teal/Salmon
     [LAYER_WIN_CTL] = LAYOUT_65_ansi_blocker(
         CK(ESC), CK(1),   CK(2),   CK(3),   CK(4),   CK(5),   CK(6),   CK(7),   CK(8),   CK(9),   CK(0),   CK(MINS),CK(EQL), CK(BSPC),CK(HOME),
-        CK(TAB), CK(Q),   CK(W),   KC_END,  CK(R),   CK(T),   CK(Y)    CK(U),   CK(I),   CK(O),   CK(P),   CK(LBRC),CK(RBRC),CK(BSLS),CK(PGUP),
-        KC_LCTL, KC_HOME, CK(S),   KC_DEL,  KC_RGHT, CK(G),   KC_BSPC, CK(J),   CK(K),   CK(L),   CK(SEMI),CK(QUOT),         CK(ENT), CK(PGDN),
-        CK(LSFT),CK(Z),   CK(X),   CK(C),   CK(V),   KC_LEFT, CK(N),   CK(M),   KC(COMM),CK(DOT), CK(SLSH),CK(RSFT),         CK(UP),  CK(END),
-        _______, CK(LGUI),CK(LART),                           CK(SPC),                            QK_BOOT, CK(GRV), CK(LEFT),CK(DOWN),CK(RGHT)
+        CK(TAB), CK(Q),   CK(W),   KC_END,  CK(R),   CK(T),   CK(Y),   CK(U),   CK(I),   CK(O),   CK(P),   CK(LBRC),CK(RBRC),CK(BSLS),CK(PGUP),
+        KC_LCTL, KC_HOME, CK(S),   KC_DEL,  KC_RGHT, CK(G),   KC_BSPC, CK(J),   CK(K),   CK(L),   CK(SCLN),CK(QUOT),         CK(ENT), CK(PGDN),
+        CK(LSFT),CK(Z),   CK(X),   CK(C),   CK(V),   KC_LEFT, CK(N),   CK(M),   CK(COMM),CK(DOT), CK(SLSH),CK(RSFT),         CK(UP),  CK(END),
+        _______, CK(LGUI),CK(LALT),                           CK(SPC),                            QK_BOOT, CK(GRV), CK(LEFT),CK(DOWN),CK(RGHT)
     ),
     // RGB Rainbow
     [LAYER_CLEAN] = LAYOUT_65_ansi_blocker(
