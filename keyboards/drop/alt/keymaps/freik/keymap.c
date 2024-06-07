@@ -4,12 +4,12 @@
 
 // Layer numbers:
 #define LAYER_MAC 0
-#define LAYER_FN 1
+#define LAYER_MAC_CMD 1
 #define LAYER_WIN 2
 #define LAYER_WIN_CAP 3
-#define LAYER_MAC_CMD 4
-#define LAYER_WIN_CTL 5
-#define LAYER_CLEAN 6
+#define LAYER_WIN_CTL 4
+#define LAYER_CLEAN 5
+#define LAYER_FN 6
 #define LAYER_COUNT 7
 
 // Macros for switching layers
@@ -26,7 +26,6 @@
 #define CK(N) LCTL(KC_##N)
 
 const uint16_t PROGMEM keymaps[LAYER_COUNT][MATRIX_ROWS][MATRIX_COLS] = {
-    // RGB Blue
     [LAYER_MAC] = LAYOUT_65_ansi_blocker(
         KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC, KC_HOME,
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_PGUP,
@@ -34,31 +33,6 @@ const uint16_t PROGMEM keymaps[LAYER_COUNT][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,          KC_UP,   KC_END,
         KC_LCTL, KC_LALT, KC_LGUI,                            KC_SPC,                             TO_WIN,  FN_GRV,  KC_LEFT, KC_DOWN, KC_RGHT
     ),
-    // RGB Yellow. None of this is tested. No idea if the RGB stuff will work with this firmware.
-    [LAYER_FN] = LAYOUT_65_ansi_blocker(
-        _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,  KC_MUTE,
-        _______, RGB_TOG, RGB_VAI, RGB_SPI, RGB_HUI, RGB_SAI, _______, _______, _______, _______, KC_PSCR, KC_SCRL, KC_PAUS, KC_APP,  KC_VOLU,
-        _______, RGB_MOD, RGB_VAD, RGB_SPD, RGB_HUD, RGB_SAD, _______, _______, _______, _______, _______, _______,          _______, KC_VOLD,
-        _______, RGB_M_P, RGB_M_B, RGB_M_R, RGB_M_SW,QK_BOOT, NK_TOGG, _______, _______, _______, _______, _______,          KC_PGUP, KC_MPLY,
-        _______, _______, _______,                            _______,                            _______, _______, KC_HOME, KC_PGDN, KC_END
-    ),
-    // RGB Violet (c90fe6)
-    [LAYER_WIN] = LAYOUT_65_ansi_blocker(
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        WIN_CAP, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
-        WIN_CTL, KC_LGUI, KC_LALT,                            _______,                            TO_CLN,  _______, _______, _______, _______
-    ),
-    // RGB Red
-    [LAYER_WIN_CAP] = LAYOUT_65_ansi_blocker(
-        AK(ESC), CK(1),   CK(2),   CK(3),   CK(4),   CK(5),   CK(6),   CK(7),   CK(8),   CK(9),   CK(0),   CK(MINS),CK(EQL), CK(BSPC),CK(HOME),
-        AK(TAB), AK(F4),  CK(F4),  CK(E),   CK(R),   CK(T),   CK(Y),   CK(U),   CK(I),   CK(O),   CK(P),   CK(LBRC),CK(RBRC),CK(BSLS),CK(PGUP),
-        _______, CK(A),   CK(S),   CK(D),   CK(F),   CK(G),   CK(H),   CK(J),   CK(K),   CK(L),   CK(SCLN),CK(QUOT),         CK(ENT), CK(PGDN),
-        CK(LSFT),CK(Z),   CK(X),   CK(C),   CK(V),   CK(B),   CK(N),   CK(M),   CK(COMM),CK(DOT), CK(SLSH),KC_LGUI,          CK(UP),  CK(END),
-        KC_LCTL, CK(LGUI),CK(LALT),                           CK(SPC),                            _______, CK(GRV), CK(LEFT),CK(DOWN),CK(RGHT)
-    ),
-    // RGB Green
     [LAYER_MAC_CMD] = LAYOUT_65_ansi_blocker(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
@@ -66,7 +40,20 @@ const uint16_t PROGMEM keymaps[LAYER_COUNT][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_SPC,           _______, _______,
         _______, _______, _______,                            _______,                            QK_BOOT, _______, _______, _______, _______
     ),
-    // RGB Teal/Salmon
+    [LAYER_WIN] = LAYOUT_65_ansi_blocker(
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        WIN_CAP, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
+        WIN_CTL, KC_LGUI, KC_LALT,                            _______,                            TO_CLN,  _______, _______, _______, _______
+    ),
+    [LAYER_WIN_CAP] = LAYOUT_65_ansi_blocker(
+        AK(ESC), CK(1),   CK(2),   CK(3),   CK(4),   CK(5),   CK(6),   CK(7),   CK(8),   CK(9),   CK(0),   CK(MINS),CK(EQL), CK(BSPC),CK(HOME),
+        AK(TAB), AK(F4),  CK(F4),  CK(E),   CK(R),   CK(T),   CK(Y),   CK(U),   CK(I),   CK(O),   CK(P),   CK(LBRC),CK(RBRC),CK(BSLS),CK(PGUP),
+        _______, CK(A),   CK(S),   CK(D),   CK(F),   CK(G),   CK(H),   CK(J),   CK(K),   CK(L),   CK(SCLN),CK(QUOT),         CK(ENT), CK(PGDN),
+        CK(LSFT),CK(Z),   CK(X),   CK(C),   CK(V),   CK(B),   CK(N),   CK(M),   CK(COMM),CK(DOT), CK(SLSH),KC_LGUI,          CK(UP),  CK(END),
+        KC_LCTL, CK(LGUI),CK(LALT),                           CK(SPC),                            _______, CK(GRV), CK(LEFT),CK(DOWN),CK(RGHT)
+    ),
     [LAYER_WIN_CTL] = LAYOUT_65_ansi_blocker(
         CK(ESC), CK(1),   CK(2),   CK(3),   CK(4),   CK(5),   CK(6),   CK(7),   CK(8),   CK(9),   CK(0),   CK(MINS),CK(EQL), CK(BSPC),CK(HOME),
         CK(TAB), CK(Q),   CK(W),   KC_END,  CK(R),   CK(T),   CK(Y),   CK(U),   CK(I),   CK(O),   CK(P),   CK(LBRC),CK(RBRC),CK(BSLS),CK(PGUP),
@@ -74,7 +61,13 @@ const uint16_t PROGMEM keymaps[LAYER_COUNT][MATRIX_ROWS][MATRIX_COLS] = {
         CK(LSFT),CK(Z),   CK(X),   CK(C),   CK(V),   KC_LEFT, CK(N),   CK(M),   CK(COMM),CK(DOT), CK(SLSH),CK(RSFT),         CK(UP),  CK(END),
         _______, CK(LGUI),CK(LALT),                           CK(SPC),                            QK_BOOT, CK(GRV), CK(LEFT),CK(DOWN),CK(RGHT)
     ),
-    // RGB Rainbow
+    [LAYER_FN] = LAYOUT_65_ansi_blocker(
+        _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,  KC_MUTE,
+        _______, RGB_TOG, RGB_VAI, RGB_SPI, RGB_HUI, RGB_SAI, _______, _______, _______, _______, KC_PSCR, KC_SCRL, KC_PAUS, KC_APP,  KC_VOLU,
+        _______, RGB_MOD, RGB_VAD, RGB_SPD, RGB_HUD, RGB_SAD, _______, _______, _______, _______, _______, _______,          _______, KC_VOLD,
+        _______, RGB_M_P, RGB_M_B, RGB_M_R, RGB_M_SW,QK_BOOT, NK_TOGG, _______, _______, _______, _______, _______,          KC_PGUP, KC_MPLY,
+        _______, _______, _______,                            _______,                            _______, _______, KC_HOME, KC_PGDN, KC_END
+    ),
     [LAYER_CLEAN] = LAYOUT_65_ansi_blocker(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
@@ -83,3 +76,61 @@ const uint16_t PROGMEM keymaps[LAYER_COUNT][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_LGUI, KC_LALT,                            _______,                            TO_MAC,  _______, _______, _______, _______
     )
 };
+/*
+RGB layer_colors[] = {
+    [LAYER_MAC]     = {RGB_BLUE},
+    [LAYER_MAC_CMD] = {RGB_AZURE},
+    [LAYER_WIN]     = {RGB_PINK},
+    [LAYER_WIN_CAP] = {RGB_RED},
+    [LAYER_WIN_CTL] = {RGB_PURPLE},
+    [LAYER_FN]      = {RGB_GREEN},
+    [LAYER_CLEAN]   = {RGB_WHITE}
+};
+
+uint8_t getlyrbit(uint8_t layer, uint8_t bit) {
+    return (layer & (1 << bit)) ? 0xFF : 0;
+}
+*/
+uint8_t my_layer_value = 0;
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    my_layer_value = get_highest_layer(state);
+    // rgb_matrix_set_color_all(getlyrbit(l, 2), getlyrbit(l, 1), getlyrbit(l, 0));
+    return state;
+}
+
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    //RGB rgb = layer_colors[get_highest_layer(layer_state)];
+    switch (my_layer_value) {
+    case LAYER_MAC:
+        rgb_matrix_set_color_all(RGB_BLUE);
+        break;
+    case LAYER_MAC_CMD:
+        rgb_matrix_set_color_all(RGB_AZURE);
+        break;
+    case LAYER_WIN:
+        rgb_matrix_set_color_all(RGB_PINK);
+        break;
+    case LAYER_WIN_CAP:
+        rgb_matrix_set_color_all(RGB_RED);
+        break;
+    case LAYER_WIN_CTL:
+        rgb_matrix_set_color_all(RGB_PURPLE);
+        break;
+    case LAYER_FN:
+        rgb_matrix_set_color_all(RGB_GREEN);
+        break;
+    case LAYER_CLEAN:
+        rgb_matrix_set_color_all(RGB_WHITE);
+        break;
+    }
+    // uint8_t l = my_layer_value;
+    // rgb_matrix_set_color_all(getlyrbit(l, 2), getlyrbit(l, 1), getlyrbit(l, 0));
+    // rgb_matrix_set_color_all(rgb.r, rgb.g, rgb.b);
+    // for (uint8_t i = led_min; i < led_max; i++) {
+    //     if (HAS_FLAGS(g_led_config.flags[i], 0x01)) { // 0x01 == LED_FLAG_MODIFIER
+    //         rgb_matrix_set_color(i, rgb.r, rgb.g, rgb.b);
+    //     }
+    // }
+    return false;
+}
