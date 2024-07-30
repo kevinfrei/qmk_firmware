@@ -103,25 +103,25 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     //RGB rgb = layer_colors[get_highest_layer(layer_state)];
     switch (my_layer_value) {
     case LAYER_MAC:
-        rgb_matrix_set_color_all(RGB_BLUE);
+        rgb_matrix_set_color_all(0, 0, 77); // RGB_BLUE 0 0 ff
         break;
     case LAYER_MAC_CMD:
-        rgb_matrix_set_color_all(RGB_AZURE);
+        rgb_matrix_set_color_all(46, 74, 77); // RGB_AZURE 99 f5 ff
         break;
     case LAYER_WIN:
-        rgb_matrix_set_color_all(RGB_PINK);
+        rgb_matrix_set_color_all(77, 38, 57); // RGB_PINK ff 80 bf
         break;
     case LAYER_WIN_CAP:
-        rgb_matrix_set_color_all(RGB_RED);
+        rgb_matrix_set_color_all(77, 0, 0); // RGB_RED ff 00 00
         break;
     case LAYER_WIN_CTL:
-        rgb_matrix_set_color_all(RGB_PURPLE);
+        rgb_matrix_set_color_all(37, 0, 77); // RGB_PURPLE 7A 00 ff
         break;
     case LAYER_FN:
-        rgb_matrix_set_color_all(RGB_GREEN);
+        rgb_matrix_set_color_all(0, 77, 0); // RGB_GREEN 00 ff 00
         break;
     case LAYER_CLEAN:
-        rgb_matrix_set_color_all(RGB_WHITE);
+        rgb_matrix_set_color_all(77, 77, 77); // RGB_WHITE ff ff ff
         break;
     }
     // uint8_t l = my_layer_value;
